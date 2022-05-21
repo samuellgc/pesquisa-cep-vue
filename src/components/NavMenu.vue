@@ -1,16 +1,16 @@
 <template>
   <nav class="nav-header">
     <div class="nav-first">
-      <img src="../assets/logo.svg" alt="Logo empresa" class="logo-img" />
+      <img src="../assets/logo.svg" alt="Logo empresa" />
       <div class="card-header">
         <p class="p-sp">Surreal São Paulo</p>
         <p class="p-vtex">VTEX</p>
       </div>
     </div>
     <div class="nav-last">
-      <img src="../assets/icone-bell.svg" alt="Logo empresa" class="i-sino" />
+      <img src="../assets/icone-bell.svg" alt="Ícone sino" class="i-sino" />
       <p class="name-user">Olá, Joaquim</p>
-      <img src="../assets/usuario.svg" alt="Logo empresa" class="i-user" />
+      <img src="../assets/usuario.svg" alt="Ícone usuário" />
     </div>
   </nav>
 </template>
@@ -27,6 +27,10 @@ export default {
   justify-content: space-between;
   align-items: center;
   gap: 25px;
+}
+
+.nav-last {
+  margin-right: 25px;
 }
 
 .nav-first,
