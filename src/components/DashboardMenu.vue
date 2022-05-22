@@ -3,7 +3,7 @@
     <div class="card-top">
       <div class="top-div-top">
         <p>input</p>
-        <p>botão</p>
+        <p><BtnMenu icon="+" msg="Adicionar endereço"/></p>
       </div>
       <div class="top-div-middle">
         <div class="cep">
@@ -22,15 +22,19 @@
         </div>
       </div>
       <div class="top-div-down">
-          <div>Botão</div>
+          <div><BtnMenu msg="Gerar endereço"/></div>
       </div>
     </div>
     <div class="card-down"></div>
   </section>
 </template>
 <script>
+import BtnMenu from './BtnMenu.vue'
 export default {
   name: "DashboardMenu",
+  components: {
+      BtnMenu
+  }
 };
 </script>
 <style scoped>
