@@ -16,7 +16,8 @@ export default {
 </script>
 <style scoped>
 .side-bar {
-  height: 100%;
+  position: absolute;
+  height: 84%;
   width: 7%;
   background-color: #f7f7f7;
   display: flex;

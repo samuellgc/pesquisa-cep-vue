@@ -3,19 +3,22 @@
   <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   <NavMenu />
   <SideMenu />
+  <DashboardMenu />
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import NavMenu from './components/NavMenu.vue'
 import SideMenu from './components/SideMenu.vue'
+import DashboardMenu from './components/DashboardMenu.vue'
 
 export default {
   name: 'App',
   components: {
     // HelloWorld
     NavMenu,
-    SideMenu
+    SideMenu,
+    DashboardMenu
   }
 }
 </script>
