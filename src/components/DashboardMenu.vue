@@ -2,8 +2,8 @@
   <section class="card-dash">
     <div class="card-top">
       <div class="top-div-top">
-        <p>input</p>
-        <p><BtnMenu icon="+" msg="Adicionar endereço"/></p>
+        <p><InputDashboard /></p>
+        <p><BtnMenu icon="+" msg="Adicionar endereço" /></p>
       </div>
       <div class="top-div-middle">
         <div class="cep">
@@ -22,26 +22,28 @@
         </div>
       </div>
       <div class="top-div-down">
-          <div><BtnMenu msg="Gerar endereço"/></div>
+        <div><BtnMenu msg="Gerar endereço" /></div>
       </div>
     </div>
     <div class="card-down"></div>
   </section>
 </template>
 <script>
-import BtnMenu from './BtnMenu.vue'
+import BtnMenu from "./BtnMenu.vue";
+import InputDashboard from "./InputDashboard.vue";
 export default {
   name: "DashboardMenu",
   components: {
-      BtnMenu
-  }
+    BtnMenu,
+    InputDashboard,
+  },
 };
 </script>
 <style scoped>
 .card-dash {
   margin: 30px 135px;
   min-height: 400px;
-  width: 480px;
+  width: 540px;
 }
 
 .card-top {
@@ -49,7 +51,6 @@ export default {
   width: 100%;
   padding-bottom: 20px;
   border-bottom: 1px solid #b7b7b7;
-  margin-bottom: 40px;
 }
 
 .top-div-top {
@@ -60,7 +61,8 @@ export default {
 }
 
 .top-div-middle {
-  margin-bottom: 50px;
+  margin-top: 25px;
+  margin-bottom: 40px;
   width: 100%;
 }
 
