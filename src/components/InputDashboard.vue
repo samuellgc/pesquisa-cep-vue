@@ -1,5 +1,5 @@
 <template>
-  <input type="text" class="input-cep" placeholder="Insira seu CEP" />
+  <input type="text" class="input-cep" name="cep" id="cep" placeholder="Insira seu CEP" />
 </template>
 <script>
 export default {
