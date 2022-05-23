@@ -87,7 +87,7 @@ export default {
     },
 
     insertCep() {
-      if (!this.ceps.includes(this.cep) && this.cep.length > 7 && this.cep === Number) {
+      if (!this.ceps.includes(this.cep) && this.cep.length > 7 && this.cep === Number && this.cep.length < 10) {
         this.ceps.push(this.cep);
         this.cep = '';
       }
