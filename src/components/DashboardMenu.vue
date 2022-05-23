@@ -74,7 +74,7 @@ export default {
             .get(url)
             .then((res) => {
               this.enderecos.push(res.data);
-              this.cep = '';
+              this.cep = "";
               this.urls = [];
             })
             .catch((error) => {
@@ -87,9 +87,13 @@ export default {
     },
 
     insertCep() {
-      if (!this.ceps.includes(this.cep) && this.cep.length > 7 && this.cep === Number && this.cep.length < 10) {
+      if (
+        !this.ceps.includes(this.cep) &&
+        this.cep.length > 7 &&
+        this.cep.length < 10
+      ) {
         this.ceps.push(this.cep);
-        this.cep = '';
+        this.cep = "";
       }
     },
 
@@ -98,7 +102,7 @@ export default {
       var indexCep = this.ceps.indexOf(cep);
       this.ceps.splice(indexCep, 1);
       this.enderecos.splice(indexEnd, 1);
-      this.cep = '';
+      this.cep = "";
     },
   },
 };
