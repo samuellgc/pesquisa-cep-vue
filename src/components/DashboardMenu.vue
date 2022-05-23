@@ -5,7 +5,7 @@
         <p>
           <input
             type="text"
-            v-model="info"
+            v-model="cep"
             class="input-cep"
             name="cep"
             id="cep"
@@ -38,7 +38,7 @@
         :cep="endereco.cep"
         :localidade="endereco.localidade"
         :uf="endereco.uf"
-        v-on:click="removeCep()"
+        v-on:click="removeCep(endereco, endereco.cep)"
       />
     </div>
   </section>
@@ -57,9 +57,10 @@ export default {
   },
   data() {
     return {
-      info: null,
+      cep: null,
       ceps: [],
       enderecos: [],
+      urls: [],
       baseUrl: "https://viacep.com.br/ws/",
     };
   },
@@ -67,32 +68,37 @@ export default {
     getEnd() {
       for (this.cep of this.ceps) {
         var url = `${this.baseUrl}${this.cep}/json/`;
+        if (!this.urls.includes(url)) {
+          this.urls.push(url);
+          axios
+            .get(url)
+            .then((res) => {
+              this.enderecos.push(res.data);
+              this.cep = '';
+              this.urls = [];
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }
       }
-      axios
-        .get(url)
-        .then((res) => {
-          this.enderecos.push(res.data);
-          console.log(this.enderecos);
-          this.limparInput()
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+
+      console.log(this.enderecos);
     },
 
     insertCep() {
-      this.ceps.push(this.info);
-      console.log(this.ceps);
-      this.info = '';
+      if (!this.ceps.includes(this.cep) && this.cep.length > 7) {
+        this.ceps.push(this.cep);
+        this.cep = '';
+      }
     },
 
-    removeCep() {
-      for (this.cep in this.ceps) {
-        this.ceps.splice(this.cep, 1);
-      }
-      for (this.endereco in this.enderecos) {
-        this.enderecos.splice(this.endereco, 1);
-      }
+    removeCep(id, cep) {
+      var indexEnd = this.enderecos.indexOf(id);
+      var indexCep = this.ceps.indexOf(cep);
+      this.ceps.splice(indexCep, 1);
+      this.enderecos.splice(indexEnd, 1);
+      this.cep = '';
     },
   },
 };
